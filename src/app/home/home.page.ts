@@ -12,11 +12,18 @@ export class HomePage implements OnInit {
   constructor(private service: TodoService) {}
 
   ngOnInit(): void {}
+
   ionViewDidEnter() {
-    this.service.getSongList().subscribe((res) => {
+    this.service.getTodos().subscribe((res) => {
       const { status, data } = res;
+      if (status == 'success') this.todos = data;
+    });
+  }
+
+  deleteTodo(id: string): void {
+    this.service.deleteTodo(id).subscribe((res) => {
+      const { status } = res;
       if (status == 'success') {
-        this.todos = data;
       }
     });
   }

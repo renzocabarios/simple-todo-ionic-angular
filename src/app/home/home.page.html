@@ -25,7 +25,7 @@
     <ion-card-content>
       <div class="action-buttons">
         <ion-button>Edit</ion-button>
-        <ion-button>Delete </ion-button>
+        <ion-button (click)="deleteTodo(todo._id || '')">Delete </ion-button>
       </div>
     </ion-card-content>
   </ion-card>
