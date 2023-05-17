@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>EDIT TODO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="ionicForm" (ngSubmit)="submit()">
+    <div class="form-input">
+      <ion-label position="floating">ID</ion-label>
+      <ion-input formControlName="_id" type="text"> </ion-input>
+    </div>
+    <div class="form-input">
+      <ion-label position="floating">Content</ion-label>
+      <ion-input formControlName="content" type="text"></ion-input>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-toast
+    [isOpen]="isToastOpen"
+    message="This toast will close in 5 seconds"
+    [duration]="5000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
+</ion-content>

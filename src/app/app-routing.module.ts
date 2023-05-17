@@ -4,23 +4,32 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () =>
+      import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'create-todo',
-    loadChildren: () => import('./create-todo/create-todo.module').then( m => m.CreateTodoPageModule)
+    loadChildren: () =>
+      import('./create-todo/create-todo.module').then(
+        (m) => m.CreateTodoPageModule
+      ),
+  },
+  {
+    path: 'edit-todo/:id',
+    loadChildren: () =>
+      import('./edit-todo/edit-todo.module').then((m) => m.EditTodoPageModule),
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
