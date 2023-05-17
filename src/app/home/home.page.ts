@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../shared/todo.service';
 import { ITodo } from '../interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,8 @@ import { ITodo } from '../interfaces';
 })
 export class HomePage implements OnInit {
   todos: ITodo[] = [];
-  constructor(private service: TodoService) {}
+
+  constructor(private service: TodoService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -26,5 +28,9 @@ export class HomePage implements OnInit {
       if (status == 'success') {
       }
     });
+  }
+
+  navigate(): void {
+    this.router.navigate(['/create-todo']);
   }
 }
