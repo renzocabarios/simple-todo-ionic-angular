@@ -35,11 +35,9 @@ export class TodoService {
     return this.http.get<IHttpResponse<ITodo>>(`${this.url}${id}`).pipe();
   }
 
-  // private handleError<T>(operation = 'operation', result?: T) {
-  //   return (error: any): Observable<T> => {
-  //     console.error(error);
-  //     console.log(`${operation} failed: ${error.message}`);
-  //     return of(result as T);
-  //   };
-  // }
+  updateTodo(id: string, song: ITodo): Observable<IHttpResponse<ITodo>> {
+    return this.http
+      .patch<IHttpResponse<ITodo>>(`${this.url}${id}`, song, this.httpOptions)
+      .pipe();
+  }
 }
