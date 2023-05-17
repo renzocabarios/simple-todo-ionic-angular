@@ -24,15 +24,10 @@ export class TodoService {
       .delete<IHttpResponse<ITodo>>(`${this.url}${id}`, this.httpOptions)
       .pipe();
   }
-  // addSong(song: Song): Observable<any> {
-  //   return this.http
-  //     .post<Song>(
-  //       'http://localhost:3000/api/create-song',
-  //       song,
-  //       this.httpOptions
-  //     )
-  //     .pipe(catchError(this.handleError<Song>('Add Song')));
-  // }
+
+  addTodo(song: ITodo): Observable<any> {
+    return this.http.post<ITodo>(this.url, song, this.httpOptions).pipe();
+  }
   // getSong(id): Observable<Song[]> {
   //   return this.http
   //     .get<Song[]>('http://localhost:3000/api/get-song/' + id)
