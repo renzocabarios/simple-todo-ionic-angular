@@ -16,6 +16,10 @@ export class HomePage implements OnInit {
   ngOnInit(): void {}
 
   ionViewDidEnter() {
+    this.getTodos();
+  }
+
+  getTodos(): void {
     this.service.getTodos().subscribe((res) => {
       const { status, data } = res;
       if (status == 'success') this.todos = data;
@@ -26,6 +30,7 @@ export class HomePage implements OnInit {
     this.service.deleteTodo(id).subscribe((res) => {
       const { status } = res;
       if (status == 'success') {
+        this.getTodos();
       }
     });
   }
