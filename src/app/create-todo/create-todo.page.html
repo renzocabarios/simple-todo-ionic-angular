@@ -5,9 +5,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">create-todo</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form [formGroup]="ionicForm" (ngSubmit)="submit()">
+    <div class="form-input">
+      <ion-label position="floating">Content</ion-label>
+      <ion-input formControlName="content" type="text"></ion-input>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>
