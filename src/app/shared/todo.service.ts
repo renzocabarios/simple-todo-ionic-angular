@@ -25,17 +25,11 @@ export class TodoService {
       .pipe();
   }
 
-  addTodo(song: ITodo): Observable<any> {
-    return this.http.post<ITodo>(this.url, song, this.httpOptions).pipe();
+  addTodo(song: ITodo): Observable<IHttpResponse<ITodo>> {
+    return this.http
+      .post<IHttpResponse<ITodo>>(this.url, song, this.httpOptions)
+      .pipe();
   }
-  // getSong(id): Observable<Song[]> {
-  //   return this.http
-  //     .get<Song[]>('http://localhost:3000/api/get-song/' + id)
-  //     .pipe(
-  //       tap((_) => console.log(`Song fetched: ${id}`)),
-  //       catchError(this.handleError<Song[]>(`Get Song id=${id}`))
-  //     );
-  // }
 
   // updateSong(id, song: Song): Observable<any> {
   //   return this.http
