@@ -35,6 +35,10 @@ export class HomePage implements OnInit {
     });
   }
 
+  editTodo(id: string): void {
+    this.router.navigate([`/edit-todo/${id}`]);
+  }
+
   navigate(): void {
     this.router.navigate(['/create-todo']);
   }
